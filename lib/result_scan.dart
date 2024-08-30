@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:verio/QR_code.dart';
 
 
@@ -42,6 +43,23 @@ class ResultScan extends StatelessWidget {
                   color: Colors.black87,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1),),
+              const SizedBox(height: 10,),
+              SizedBox(
+                width: MediaQuery.of(context).size.width-100,
+                height: 48,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  onPressed: (){
+                    Clipboard.setData(ClipboardData(text: code));
+                  }, 
+                child: const Text("Copier", style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                  letterSpacing: 1.0,
+                ),)),
+              ),
             ],
           ),
       ),
